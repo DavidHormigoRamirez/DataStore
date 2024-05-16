@@ -12,4 +12,10 @@ interface WhatsAppCloneAPI {
     suspend fun register(@Body phone:UserRequest): Response<UserResponse>
     @GET("user")
     suspend fun readUser(@Query("phone") phone:String): Response<UserResponse>
+
+    @GET("message")
+    suspend fun getAllMesages(): Response<List<MessageResponse>>
+
+    @POST("message")
+    suspend fun createMessage(message:MessageRequest): Response<MessageResponse>
 }
